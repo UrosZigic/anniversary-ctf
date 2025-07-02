@@ -1,3 +1,7 @@
+# Hacken Anniversary CTF
+
+This repository contains my solution for the Hacken Anniversary CTF challenge.
+
 ## Rules:
 1. Use Ethernet fork.
 2. Use 20486120 block.
@@ -11,7 +15,7 @@
 ```shell
 git clone ...
 forge build
-forge test ...
+forge test --fork-url <RPC_URL> --fork-block-number 20486120
 ```
 
 ## Documentation:

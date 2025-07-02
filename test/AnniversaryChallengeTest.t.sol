@@ -6,6 +6,7 @@ import {AnniversaryChallenge} from "../src/AnniversaryChallenge.sol";
 import {SimpleStrategy} from "../src/SimpleStrategy.sol";
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
+import {AttackContract} from "../src/MyContracts.sol";
 
 // Rules:
 // 1. Use Ethernet fork.
@@ -37,7 +38,7 @@ contract AnniversaryChallengeTest is Test {
         vm.startPrank(player);
         //Execute exploit here.
 
-        challenge.claimTrophy(player, 1e6);
+        new AttackContract{value: 0.1 ether}(address(challenge), player);
 
         //No execution of exploit after this point.
         vm.stopPrank();
